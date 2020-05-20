@@ -10,6 +10,9 @@ banco_hp.db-journal
 banco_app.db
 banco_app.db-journal
 
+#arquivos para download
+*.xlsx
+
 #idea
 .idea/
 
