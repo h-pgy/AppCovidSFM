@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Monitoramento Covid-19 - SFM</title>
+    <style>
+        h1 {font-family: 'Lato', sans-serif; font-size: 54px; font-weight: 300; line-height: 58px; margin: 0 0 58px; }
+        h1, h3, container, row, col-sm {
+        text-align: center;
+        left: 50%;
+        top: 50%;
+        margin-top: 50px;
+        margin-bottom: 50px}
+        .top-buffer { margin-top:20px; }
+        .low-buffer {margin-low: 20px;}
+        .loader {
+          border: 16px solid #f3f3f3; /* Light grey */
+          border-top: 16px solid #3498db; /* Blue */
+          border-radius: 50%;
+          width: 120px;
+          height: 120px;
+          animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body class="body">
+    <h1> Monitoramento Covid-19</h1>
+    <h3> Microdados do Sistema Ágape</h3>
+
+     <div class="container-fluid">
+
+         <div id = 'alerta_atualiz'> </div>
+
+        <div class="row top-buffer">
+            <div class="col-sm">
+              <a href="/downloads?table=dados_obito">
+                  <button class="btn btn-outline-info btn-lg btn-block" id = 'dados_obito'
+                  onclick = bind_dados_obito()>Microdados Óbitos</button></a>
+            </div>
+            <div class="col-sm">
+              <a href="/downloads?table=cremacao">
+                  <button class="btn btn-outline-info btn-lg btn-block" id = 'cremacao'
+                  onclick = bind_cremacao() >Microdados Cremações</button></a>
+            </div>
+            <div class="col-sm">
+              <a href="/downloads?table=sepultamento">
+                  <button class="btn btn-outline-info btn-lg btn-block"
+                          onclick = bind_sepultamento() id = 'sepultamento'>Microdados Sepultamentos</button></a>
+            </div>
+            <div class="col-sm">
+              <a href="/downloads?table=contratacao">
+                  <button class="btn btn-outline-info btn-lg btn-block" id = 'contratacao'
+                  onclick = bind_contratacao()>Microdados Contratações</button>
+              </a>
+            </div>
+        </div>
+         <div class="row top-buffer">
+             <div class="col-sm">
+             </div>
+            <div class="col-sm">
+                <a href="/atualizar">
+                    <button type="button" class="btn btn-outline-info btn-lg btn-block" onclick = check_atualiz_while()>Atualizar Dados</button>
+                </a>
+            </div>
+             <div class = 'col-sm'>
+            </div>
+         </div>
+         <div class="row top-buffer">
+             <div class="col-sm">
+             </div>
+            <div class="col-sm btn btn-primary disabled ">
+                Última Atualização : {{status.ultima_atualizacao_banco_dt}}
+            </div>
+             <div class = 'col-sm'>
+             </div>
+         </div>
+   </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src='../static/js/proj_scripts.js'> </script>
+</body>
+
+</html>
